@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Found Bank - Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #74ebd5, #acb6e5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 400px;
+        }
+
+        .header {
+            text-align: center;
+            font-size: 36px;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .login-container, .account-summary {
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .login-container h2, .account-summary h2 {
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        input {
+            width: calc(100% - 20px);
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 10px 0;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .buttons-container {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+
+        .buttons-container button {
+            width: auto;
+            padding: 12px 20px;
+        }
+
+        .restricted-message {
+            color: red;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            color: #555;
+            font-size: 14px;
+        }
+    </style>
+    <script defer>
+        function forgotPassword() {
+            alert('Please contact customer support to reset your password.');
+        }
+
+        function login() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            if (username === 'jasonteick' && password === 'jasonteick1974') {
+                document.getElementById('login-container').style.display = 'none';
+                document.getElementById('account-summary').style.display = 'block';
+                document.getElementById('buttons-container').style.display = 'flex';
+                document.getElementById('restricted-message').style.display = 'block';
+            } else {
+                alert('Invalid username or password. Please try again.');
+            }
+        }
+
+        function showMessage(service) {
+            alert(`Access to ${service} is restricted. Please contact customer support for assistance.`);
+        }
+    </script>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">Welcome to Found Bank</div>
+
+        <div class="login-container" id="login-container">
+            <h2>Login</h2>
+            <input type="text" id="username" placeholder="Username">
+            <input type="password" id="password" placeholder="Password">
+            <button onclick="login()">Login</button>
+            <p><a href="#" onclick="forgotPassword()">Forgot Password?</a></p>
+        </div>
+
+        <div class="account-summary" id="account-summary" style="display: none;">
+            <h2>Hi, Jason Teick!</h2>
+            <p>Balance: $460,800.00</p>
+            <p>Account Number: 0250260885</p>
+            <p>Status: Restricted</p>
+            <p>Type: Checking Account</p>
+        </div>
+
+        <div class="buttons-container" id="buttons-container" style="display: none;">
+            <button onclick="showMessage('Send Money')">Send Money</button>
+            <button onclick="showMessage('Bills Payment')">Bills Payment</button>
+            <button onclick="showMessage('Transaction History')">Transaction History</button>
+        </div>
+
+        <div class="restricted-message" id="restricted-message" style="display: none;">
+            <p>Your account is restricted. Please contact customer support for assistance.</p>
+        </div>
+
+        <div class="footer">&copy; 2024 Found Bank. All rights reserved.</div>
+    </div>
+
+</body>
+</html>
